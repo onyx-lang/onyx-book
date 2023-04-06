@@ -26,8 +26,11 @@ while   for       do          switch case
 break   continue  fallthrough return
 sizeof  alignof   typeof      cast
 macro   interface where
+```
 
-global (deprecated)
+There is one deprecated keyword that may be removed in the future.
+```onyx
+global
 ```
 
 ### Directives
