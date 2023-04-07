@@ -12,9 +12,9 @@ $ onyx build source1.onyx source2.onyx source3.onyx ...
 ## Using `#load` directives
 
 The idiomatic way of loading files into a program is using the `#load` directive.
-The `#load` directive takes a compile-time string as the file name, tells the compiler to load that file.
+The `#load` directive takes a compile-time string as the file name, and tells the compiler to load that file.
 
-There are a couple of things to understand as to how the compiler find the file to load given given a file name.
+There are a couple of things to understand as to how the compiler finds the file to load, given a file name.
 - If the file name starts with `./`, then the file is always loaded *relative* to the path of the file containing the `#load` directive.
 - Otherwise, the *load path* is searched for a file matching that name.
     - By default, the load path has two directories in it: `.` and `ONYX_PATH`.
