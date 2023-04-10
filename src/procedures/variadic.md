@@ -30,6 +30,7 @@ This example outputs:
 i32
 (..any) -> void
 ```
+> Note, read more about `any` in the [`Any`](/stdlib/any.md) section.
 
 Using [Runtime Type Information](), functions can introspect the values given and perform arbitrary operations. For example, `conv.format` uses type information to print anything of any type in the program.
 ```onyx

@@ -7,6 +7,7 @@ Point :: struct {
 }
 ```
 
+## Accessing Members
 Member access is done through the `.` operator. Note that accessing a member on a pointer to a structure uses the same `.` syntax.
 ```onyx
 p: Point;
@@ -17,6 +18,7 @@ ptr := &p;
 ptr.x = 30;
 ```
 
+## Structure Literals
 Structure literals are a quicker way of creating a value of a struct type. They have the form, `Type.{ members }`. The `members` can be partially, or completely named. The same rules apply for when giving members as do for arguments when calling a procedure. If a value is not provided for a member, and no default value is given in the structure, a zeroed-value is used.
 ```onyx
 // Naming members
@@ -26,6 +28,7 @@ p1 := Point.{x=10, y=20};
 p2 := Point.{10, 20};
 ```
 
+## Defaulted Members
 Members can be given default values. These values are used in structure literals if no other value is provided for a member. They are also used by `__initialize` to initialize a structure.
 ```onyx
 Person :: struct {
@@ -51,6 +54,7 @@ __initialize(^joe2);
 println(joe2);
 ```
 
+## Directives
 Structures have a variety of directives that can be applied to them to change their properties. Directives go before the `{` of the structure definition.
 
 | Directive  | Function                            |
@@ -60,6 +64,8 @@ Structures have a variety of directives that can be applied to them to change th
 | `#pack`    | Disable automatic padding           |
 | `#union`   | A members are at offset 0 (C Union) |
 
+
+## Polymorphic Structures
 Structures can be polymorphic, meaning they accept a number of compile time arguments, and generate a new version of the structure for each set of arguments.
 ```onyx
 // A 2d-point in any field.
@@ -108,6 +114,7 @@ put :: (map: ^HashMap, key: map.Key, value: map.Value) {
 }
 ```
 
+## Structure Composition
 Onyx does not support inheritance. Instead, a composition model is preferred. The `use` keyword specifies that all members of a member should be directly accessible.
 ```onyx
 Name_Component :: struct {
@@ -130,6 +137,7 @@ p.age = 42;
 println(p);
 ```
 
+## Sub-Type Polymorphism
 Onyx supports sub-type polymorphism, which enable a safe and automatic conversion between pointer types `B` to `A` if the following conditions are met:
 1. The first member of `B` is of type `A`.
 2. The first member of `B` is used.
