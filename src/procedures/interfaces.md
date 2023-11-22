@@ -1,4 +1,4 @@
-# Interfaces and where TODO
+# Interfaces and where
 
 Interfaces allow for type constraints to be placed on polymorphic procedures. Without them, polymorphic procedures have no way of specifying which types are allowed for their polymorphic variables. Interfaces are best explained through example, so consider the following.
 ```onyx

@@ -1,6 +1,6 @@
 # Literals
 ## Boolean Literals
-Onyx contains standard the boolean literals: `true` and `false`.  They must be spelled all-lowercase as they are actually just global symbols. These means if you are feeling particularly evil, you could change what `true` and `false` mean in a particular scope.
+Onyx contains standard the boolean literals: `true` and `false`.  They must be spelled all-lowercase as they are actually just global symbols. These means if you are feeling particularly evil, you could change what `true` and `false` mean in a particular scope, but I *highly* recommend you don't.
 
 ## Numeric Literals
 Onyx contains the following numeric literals:

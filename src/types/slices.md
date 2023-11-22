@@ -2,7 +2,7 @@
 Slices are arrays with a runtime known size. A slice `[] T` is equivalent to the following structure.
 ```onyx
 [] T == struct {
-	data: ^T;
+	data: &T;
 	count: u32;
 }
 ```

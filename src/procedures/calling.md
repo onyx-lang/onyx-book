@@ -1,4 +1,4 @@
-# Calling procedures TODO
+# Calling procedures
 Calling any procedure-like thing in Onyx uses the traditional `()` post-fix operator, with arguments in between. Arguments are separated by commas. Arguments can also be named. Once arguments start being named, all subsequent arguments must be named.
 ```onyx
 magnitude :: (x, y, z: f32) -> f32 {

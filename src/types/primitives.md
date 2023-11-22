@@ -20,7 +20,7 @@ type_expr    // The type of a type.
 any          // Used to represent any value in the language.
 
 str          // A slice of bytes ([] u8)
-cstr         // A pointer to bytes (^u8) with a null-terminator.
+cstr         // A pointer to bytes (&u8) with a null-terminator.
 dyn_str      // A dynamic string ([..] u8)
 
 range        // Represents a start, end, and step.

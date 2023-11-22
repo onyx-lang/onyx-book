@@ -45,12 +45,9 @@ println(sally);
 joe := Person.{ age=31 };
 println(joe);
 
-// __initialize is a special intrinsic procedure that initializes
-// any value provided to it. For structures, it sets all members
-// to their default value.
-use core.intrinsics.onyx {__initialize}
-joe2: Person;
-__initialize(^joe2);
+// Leaving out all members simply sets the members with initializers to
+// their default values, and all other members to zero.
+joe2 := Person.{};
 println(joe2);
 ```
 

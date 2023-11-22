@@ -1,5 +1,5 @@
 # Distinct
-Distinct types wrap a primitive or pointer type, which allows for strong type checking and operator overloads. Consider this example about representing a timestamp.
+Distinct types wrap another type in a new *distinct* type, which allows for strong type checking and operator overloads. Consider this example about representing a timestamp.
 ```onyx
 use core {println}
 
@@ -21,7 +21,7 @@ With distinct types, more semantic meaning can be given to values that otherwise
 
 Distinct types can be casted directly to their underlying type, and vice versa. Distinct types cannot be casted directly to a different type.
 
-It should be noted that when a distinct type is made, *all* operators are no longer defined for the new type. In the previous example, two `Time` values would not be comparable unless a specific operator overload was provided.
+It should be noted that when a distinct type is made, *none of the operators* defined for the base type are defined for the new type. In the previous example, two `Time` values would not be comparable unless a specific operator overload was provided.
 ```onyx
 Time :: #distinct u32
 #operator == (t1, t2: Time) => cast(u32) == cast(u32) t2;

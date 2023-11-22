@@ -1,4 +1,4 @@
-# Return values TODO
+# Return values
 
 Procedures can return 0 or more values. Return types are specified after procedure arguments using an `->`. If multiple return values are desired, the return types have to be enclosed in parentheses. The `return` keyword is used to specify returned values.
 ```onyx

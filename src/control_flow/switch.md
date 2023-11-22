@@ -59,6 +59,10 @@ switch Point.{10, 20} {
 }
 ```
 
+## Tagged Unions
+
+`switch` statements are very important when working with tagged unions. See the [`tagged union`](../types/unions.md) section for details.
+
 ## Initializers
 
 `switch` statements can also optionally have an *initializer*, like [`while`](./while.md) and [`if`](./ifs.md) statements.

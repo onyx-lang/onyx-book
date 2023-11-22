@@ -62,6 +62,7 @@ first :: (arr: [] $T) -> ? T {
 main :: () {
     arr := i32.[];
 
+    // If first(arr) return a None value, return 0 instead;
     v := first(arr) ?? 0;
     core.println(v); // Prints 0
 }

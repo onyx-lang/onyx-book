@@ -4,11 +4,11 @@ Dynamic arrays have a variable size that can be changed after they are created. 
 use core {array, println}
 
 arr: [..] i32;
-array.init(^arr);
-defer array.free(^arr);
+array.init(&arr);
+defer array.free(&arr);
 
 for 0 .. 10 {
-	array.push(^arr, it);
+	array.push(&arr, it);
 }
 
 for arr {
@@ -28,7 +28,7 @@ use core {array, println}
 // on the first push, so there is no need to explicitly
 // allocate it if you are using context.allocator.
 arr: [..] i32;
-defer if arr.data != null do array.free(^arr);
+defer if arr.data != null do array.free(&arr);
 
 for 0 .. 10 {
 	// No need to take the address 'arr'.

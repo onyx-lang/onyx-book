@@ -24,6 +24,6 @@ onyx run hello.onyx
 ### Compiling Onyx
 You can also compile Onyx to a [WebAssembly](https://webassembly.org) binary, and run it later:
 ```sh
-onyx hello.onyx -o hello.wasm
+onyx build hello.onyx -o hello.wasm
 onyx run hello.wasm
 ```

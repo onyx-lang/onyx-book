@@ -37,7 +37,7 @@ global
 In order to reduce the number of keywords in the language, Onyx uses *directives*, which are symbols with a `#` in front of them. They serve as keywords, without cluttering the list of reserved words. Some examples of directives are:
 ```onyx
 #load    #load_all   #load_path
-#quote   #match      #foreign
+#size    #match      #foreign
 #library #export     #auto
 ```
 There are too many directives to list here, and listing them does not help anyone. Most directives appear only in one specific place, and are not valid anywhere else in the code.
