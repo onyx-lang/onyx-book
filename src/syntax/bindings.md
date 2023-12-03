@@ -2,10 +2,11 @@
 
 *Bindings* are a central concept to Onyx. A binding declares that certain symbol is *bound* to something in a scope. This "something" can be an compile-time known object. Here is a non-exhaustive list or some of the compile-time known objects.
 - Procedure
-- `macro`
-- `struct`
-- `enum`
-- `package`
+- `macro`s
+- `struct`s
+- `enum`s
+- `package`s
+- constant literals
 
 ## Syntax
 A binding is written in the following way:
@@ -22,4 +23,21 @@ This says that `symbol_name` will mean the same thing as `value` in the scope th
 > ```
 > Notice that the procedure defined here can be called `g` or `f`. When reporting errors the compiler will use the name that was originally bound to the procedure (`f`).
 
+## Use as constants
+
+Onyx does not have a way so specify constant variables. When you declare a variable with `:=`, it is *always* modifiable. While constants are very useful, Onyx would suffer from the same problem that C and C++ have with constants: they aren't necessarily constant. You can take a pointer to it, and use that to modify it. Onyx does not want to make false promises about how constant something is.
+
+That being said, bindings can serve as compile-time constants. You can declare
+a binding to a constant literal, or something that can be reduced to a constant literal
+at compile time. Here are some examples.
+
+```onyx
+A_CONSTANT_INTEGER :: 10
+A_CONSTANT_FLOAT :: 12.34
+A_CONSTANT_STRING :: "a string"
+
+// Since A_CONSTANT_STRING.length and A_CONSTANT_INTEGER are compile-time known
+// the addition can happen at compile-time.
+A_CONSTANT_COMPUTED_INTEGER :: A_CONSTANT_STRING.length + A_CONSTANT_INTEGER
+```
 
