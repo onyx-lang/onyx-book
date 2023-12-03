@@ -1,6 +1,11 @@
 # Summary
 
 - [Overview](./Overview.md)
+- [Philosophy](./philosophy/philosophy.md)
+    - [Design Decisions](./philosophy/design.md)
+    - [Why WebAssembly?](./philosophy/wasm.md)
+    - [Why use Onyx?](./philosophy/onyx.md)
+    - [Memory Management](./philosophy/memory.md)
 - [Syntax](./syntax/syntax.md)
 	- [Lexical Rules](./syntax/lexical_rules.md)
 	- [Literals](./syntax/literals.md)
