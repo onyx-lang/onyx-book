@@ -141,11 +141,11 @@ member in `Dog` and `Cat`.
 
 ```onyx
 Dog :: struct {
-    use vtable: Animal_Vtable = &dog_vtable;
+    use vtable: Animal_Vtable = dog_vtable;
 }
 
 Cat :: struct {
-    use vtable: Animal_Vtable = &cat_vtable;
+    use vtable: Animal_Vtable = cat_vtable;
 }
 ```
 
