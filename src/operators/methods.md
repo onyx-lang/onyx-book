@@ -150,7 +150,7 @@ Cat :: struct {
 ```
 
 Now you can pass a pointer `Dog` and or a pointer to `Cat` to any procedure expecting
-a pointer to an `Animal_Vtable`, thank to [Sub-Type Polymorphism](../types/structures.md#sub-type-polymorphism).
+a pointer to an `Animal_Vtable`, thanks to [Sub-Type Polymorphism](../types/structures.md#sub-type-polymorphism).
 
 ```onyx
 say_greeting :: (animal: &Animal_Vtable, name: str) {
