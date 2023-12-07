@@ -33,3 +33,23 @@ main :: () {
 }
 ```
 
+## Iterators and Pipe
+
+The `core.iter` package in Onyx uses the pipe operator heavily.
+The package is designed in a way for the `Iterator` transformation
+functions to be easily chained.
+
+For example, say you wanted to find the first 5 odd numbers greater
+than 100, you could write the following iterator.
+
+```onyx
+my_numbers :=
+    iter.as_iter(0 .. 100000)        // Convert the range to an iterator.
+    |> iter.skip_while(x => x < 100) // Skip numbers less than 100.
+    |> iter.filter(x => x % 2 == 1)  // Filter for only odd numbers.
+    |> iter.take(5)                  // Only take the first 5 things.
+    |> iter.collect();               // Collect the results as an array.
+```
+
+This is contrived example, but it shows how composable the `iter` package
+is, thanks to the pipe operator.

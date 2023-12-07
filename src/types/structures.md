@@ -135,7 +135,7 @@ println(p);
 ```
 
 ## Sub-Type Polymorphism
-Onyx supports sub-type polymorphism, which enable a safe and automatic conversion between pointer types `B` to `A` if the following conditions are met:
+Onyx supports sub-type polymorphism, which enable a safe and automatic conversion between pointer types `&B` to `&A` if the following conditions are met:
 1. The first member of `B` is of type `A`.
 2. The first member of `B` is used.
 ```onyx
@@ -159,4 +159,7 @@ joe.name = "Joe";
 // This is safe, because Joe "extends" Person.
 say_name(^joe);
 ```
+
+In this example, you can pass a pointer to `Joe` when a pointer to `Person` is expected,
+because the first member of `Joe` is a `Person`, and that member is used.
 
