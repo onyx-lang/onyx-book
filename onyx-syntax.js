@@ -38,7 +38,7 @@ function onyx(hljs) {
                 {
                     className: "keyword",
                     scope: "keyword",
-                    begin: /#\w+/, 
+                    begin: /#[a-zA-Z0-9_]+/, 
                     end: ' ',
                 }
             ]
