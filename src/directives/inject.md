@@ -44,7 +44,7 @@ be optionally defined with a [static if](./if.md). Using `#inject` you can
 define your own extensions to types provided from any library.
 
 When you have many things to inject into the same place, you can use the block form
-of `#inject`. In this form, you write `#inject` then thing to inject into, followed by
+of `#inject`. In this form, you write `#inject`, then the thing to inject into, followed by
 braces (`{}`). Inside the braces, any binding you write will be turned into an
 injected binding into that scope.
 
