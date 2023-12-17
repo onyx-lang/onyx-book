@@ -35,7 +35,7 @@ main :: () {
 
     // Sum the squares with a fold operation
     |> iter.fold(0, (x, y) => x + y)
-    |> println()              // Print it to the screen
+    |> println();             // Print it to the screen
 }
 ```
 
