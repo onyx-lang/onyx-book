@@ -94,9 +94,9 @@ Code blocks are not type checked until they are unquoted, so they can contain re
 Code blocks have their syntax because they can optionally take parameters between their `[]`. When unquoting a code block with parameters,
 you must pass an *equal or greater* number of arguments in parentheses after the variable name.
 ```onyx
-do_something :: ($do: Code) {
-    #unquote do(1, 2);
-    #unquote do(2, 6);
+do_something :: ($do_: Code) {
+    #unquote do_(1, 2);
+    #unquote do_(2, 6);
 }
 
 do_something([a, b] {
