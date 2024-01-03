@@ -5,7 +5,7 @@ Onyx has the following binary boolean operators:
 | Operator | Use | Works on |
 | --- | --- | --- |
 | `&&` | And | booleans |
-| \|\| | Or | booleans |
+| `||` | Or | booleans |
 
 Onyx has the following unary boolean operator:
 
