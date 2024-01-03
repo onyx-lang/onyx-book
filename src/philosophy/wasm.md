@@ -25,7 +25,7 @@ There is work being done to create the WebAssembly Component Model, which is a w
 in a variety of different language to all interoperate with one another, much like how programs from Java,
 Kotlin, and Scala can interact because they all run on the JVM. This proposal is nearly completion, but
 Onyx is waiting until there are more languages implementing it to see how all of the details shake out.
-It is the roadmap for Onyx to support it.
+It is on the roadmap for Onyx to support it.
 
 ## Why choose WebAssembly?
 
