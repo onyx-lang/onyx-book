@@ -51,7 +51,7 @@ main :: () {
     sequence := i32.[5, 2, 4, 9, 29, 8, 2, 8, 3];
 
     sum := 0;
-    for value: sequence[0 .. 5] {
+    for value in sequence[0 .. 5] {
         square := value * value;
         sum += square;
     }

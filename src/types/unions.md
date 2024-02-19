@@ -38,11 +38,11 @@ print_value :: (v: Value) {
     switch v {
         // `n` is the captured value
         // Notice we use `.Integer`. This is short for `Value.tag_enum.Integer`.
-        case n: .Integer {
+        case .Integer as n {
             printf("Its an integer with value {}.\n", n);
         }
 
-        case s: .String {
+        case .String as s {
             printf("Its a string with value {\"}.\n", s);
         }
 

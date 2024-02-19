@@ -46,7 +46,11 @@ There are too many directives to list here, and listing them does not help anyon
 Onyx is largely white-space agnostic. White-space is only needed to separate keywords and symbols. Onyx does not care about spaces vs tabs. That being said, most code written in Onyx uses 4 spaces per indentation level.
 
 ### Semi-colons
-Onyx uses semi-colons to delineate between statements; Because Onyx is white-space agnostic, something is needed to separate statements. There is potential for adding *implicit semi-colons* where appropriate, but that is not under active development.
+Onyx uses semi-colons to delineate between statements; Because Onyx is white-space agnostic, something is needed to separate statements. There is an experimental flag for adding *implicit semicolons* where appropriate. Simply pass `--feature optional-semicolons` on the CLI when building or running to apply the rule to all loaded files. Or, added the following as the very first line of any Onyx file to enable optional semicolons within that file.
+
+```onyx
+//+optional-semicolons
+```
 
 ### Symbols
 Symbols in Onyx start with an alphabetic character or an underscore (`_`), followed by 0 or more alphanumeric characters or underscores. They can be described using the following regular expression:

@@ -65,7 +65,7 @@ switch o {
         // No value
     }
 
-    case v6: .Some {
+    case .Some as v6 {
         // v6 is the value
     }
 }

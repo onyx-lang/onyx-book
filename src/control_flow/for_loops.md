@@ -9,7 +9,7 @@
 
 A basic `for` loop in Onyx. This will iterate from 1 to 9, as the upper bound is not included.
 ```onyx
-for i: 1 .. 10 {
+for i in 1 .. 10 {
     println(i);
 }
 ```
@@ -19,13 +19,13 @@ This `for` loop is iterating over a `range`. Ranges represent half-open sets, so
 `for` loops can also iterate over array-like types: `[N] T`, `[] T`, `[..] T`. Use `&` after `for` to iterate over the array by pointer.
 ```onyx
 primes: [5] i32 = .[ 2, 3, 5, 7, 11 ];
-for value: primes {
+for value in primes {
     println(value);
 }
 
 // This modifies the array so each element
 // is double what it was.
-for& value: primes {
+for &value in primes {
     // value is a &i32.
     *value *= 2;
 }
@@ -37,6 +37,24 @@ Naming the iteration value is optional. If left out, the iteration value will be
 ```onyx
 for i32.[2, 3, 5, 7, 11] {
     println(it);
+}
+```
+
+## Indexed-loops
+
+`for` loops can optionally have a second iteration value called the index.
+This index starts at 0, and increments by 1 every iteration.
+Its default type is `i32`, but this can be changed.
+
+```onyx
+// Use i32 as type of index
+for value, index in i32.[2, 3, 5, 7, 11] {
+    printf("{}: {}", index, value);
+}
+
+// Explictly change the type to i64
+for value, index: i64 in i32.[2, 3, 5, 7, 11] {
+    printf("{}: {}", index, value);
 }
 ```
 
@@ -130,5 +148,20 @@ for arr {
 This example will print:
 ```
 2, 3, 5, 7, 11
+```
+
+## Explicitly-typed loop variable
+
+You can optionally provide an explicit type for the loop variable, if you feel it improves code readability.
+It does not carry any extra semantic meaning, but solely exists for the next reader of the code.
+If you provide the incorrect type, it is a compile error.
+
+```onyx
+strings := str.["A", "list", "of", "strings"];
+
+// Explcitly say that value is a str
+for value: str in strings {
+    println(value)
+}
 ```
 

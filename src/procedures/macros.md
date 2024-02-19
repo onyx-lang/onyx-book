@@ -149,7 +149,7 @@ find_largest :: (x: [] $T) -> T {
 A code block can also be passed to a macro or procedure simply by placing a block immediately after a function call. This only works if the function call is a statement.
 ```onyx
 skip :: (arr: [] $T, $body: Code) {
-    for n: 0 .. arr.count {
+    for n in 0 .. arr.count {
         if n % 2 == 1 do continue;
         it := arr[n];
         #unquote body;

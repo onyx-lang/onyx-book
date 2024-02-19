@@ -2,13 +2,17 @@
 
 Interfaces allow for type constraints to be placed on polymorphic procedures. Without them, polymorphic procedures have no way of specifying which types are allowed for their polymorphic variables. Interfaces are best explained through example, so consider the following.
 ```onyx
-CanAdd :: interface (t: $T) {
+CanAdd :: interface (T: type_expr) {
+    t as T;
+
     { t + t } -> T;
 }
 ```
-`t` is a value of type `T`. The body of the interface is specifying that two values of type `T` can be added together and the result is of type `T`. Any expression can go inside of the curly braces, and it will be type checked against the type after the arrow. This interface can be used to constrict which types are allowed in polymorphic procedure using a `where` clause.
+`T` is a type, and `t` is a value of type `T`. The body of the interface is specifying that two values of type `T` can be added together and the result is of type `T`. Any expression can go inside of the curly braces, and it will be type checked against the type after the arrow. This interface can be used to constrict which types are allowed in polymorphic procedure using a `where` clause.
 ```onyx
-CanAdd :: interface (t: $T) {
+CanAdd :: interface (T: type_expr) {
+    t as T;
+
     { t + t } -> T;
 }
 
@@ -29,14 +33,18 @@ The second call to `sum_array` would generate an error anyway when it type check
 Interface constraints can also take on a more basic form, where the expected type is omitted. In this case, the compiler is only checking if there are no errors in the provided expression.
 ```onyx
 // This does not check if t + t is of type T.
-CanAdd :: interface (t: $T) {
+CanAdd :: interface (T: type_expr) {
+    t as T;
+
     t + t;
 }
 ```
 
 Interfaces can be used in conjunction with `#match` blocks to perform powerful compile-time switching over procedures. Consider the following extension to the previous example.
 ```onyx
-CanAdd :: interface (t: $T) {
+CanAdd :: interface (T: type_expr) {
+    t as T;
+
     { t + t } -> T;
 }
 

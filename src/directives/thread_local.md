@@ -28,7 +28,7 @@ main :: () {
 			})
 			|> iter.collect();
 
-	for t: threads {
+	for t in threads {
 		thread.join(t);
 	}
 }

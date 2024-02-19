@@ -13,7 +13,7 @@ function onyx(hljs) {
             keyword: [
                 "package", "struct", "enum", "use", "global", "macro",
                 "if", "elseif", "else", "where", "interface", "union",
-                "for", "while", "do",
+                "for", "while", "do", "in", "as",
                 "switch", "case",
                 "break", "continue", "return", "defer", "fallthrough",
                 "cast", "sizeof", "alignof", "typeof"
