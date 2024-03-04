@@ -99,3 +99,53 @@ public_interface :: () {
     }
 }
 ```
+
+
+## Notable packages
+
+There are several package names that have been taken by the Onyx standard library and/or have a special use.
+
+### `builtin` package
+
+The `builtin` package is notable because it is required by the compiler to exist.
+It contains several definitions needed by the compiler, for example `Optional` and `Iterator`.
+These definitions live in `core/builtin.onyx`, which is a slight misnomer because the `builtin` package is separate from the `core` module.
+
+`builtin` is also special because its public scope is mapped to the *global* scope of the program.
+This means that anything defined (or [`#inject`ed](./../directives/inject.md)) into the package is available *without* using any packages.
+
+### `runtime` package
+
+The `runtime` package is required by the compiler to exist, as the compiler places several variables in it related to the current operating system and selected runtime.
+
+### `runtime.vars` package
+
+`runtime.vars` is used for configuration variables.
+It is the "dumping ground" for symbols defined on the command line with the `-D` option.
+Use [`#defined`](./../directives/defined.md) to tell if a symbol was defined or not.
+
+```onyx
+use runtime
+
+// Compile with -DENABLE_FEATURE to enable the feature
+Feature_Enabled :: #defined(runtime.vars.ENABLE_FEATURE)
+```
+
+### `runtime.platform` package
+
+`runtime.platform` is an abstraction layer used by the core libraries that handles interacting with OS/environment things, such as reading from files and outputting a string.
+
+### `core` package
+
+The `core` package houses all of the standard library.
+The way the Onyx packages are structured, the compiler does not know anything about the `core` package.
+If someone wanted to, they could replace the *entire* core library and the compiler would not be affected.
+
+### `main` package
+
+The `main` package is the default package every file is a part of if no `package` declaration is made.
+The standard library expects the `main` package to have a `main` procedure that represents the start of execution.
+It must be of type `() -> void` or `([] cstr) -> void`.
+If there is not an entrypoint in the program because it is a library, simply use `-Dno_entrypoint` when compiling,
+or define a dummy `main` with no body.
+

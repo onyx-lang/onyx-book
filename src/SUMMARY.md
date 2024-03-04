@@ -23,6 +23,7 @@
     - [Pointer operators](./operators/pointers.md)
     - [Bitwise operators](./operators/bitwise.md)
     - [Try/Coalesce operators](./operators/try-coalesce.md)
+    - [Cast operators](./operators/cast.md)
     - [Procedure calls](./operators/calls.md)
     - [If/else operator](./operators/if-else.md)
     - [Range operator](./operators/range.md)
