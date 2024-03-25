@@ -30,6 +30,6 @@ product :: (elems: [] $T) -> T {
 data := .[1, 2, 3, 4];
 println(product(data));
 println(product(data[2 .. 4]));
-println(product(array.make(data)));
+println(product(Array.make(data)));
 ```
 

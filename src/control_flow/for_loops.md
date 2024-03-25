@@ -114,7 +114,7 @@ iter.close(doubled_iterator);
 The final feature of `Iterator`-based `for` loops is the `#remove` directive. If the current `Iterator` supports it, you can write `#remove` to remove the current element from the iterator.
 ```onyx
 // Make a dynamic array from a fixed-size array.
-arr := array.make(u32.[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+arr := Array.make(u32.[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 // as_iter with a pointer to a dynamic array 
 // supports #remove.
