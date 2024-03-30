@@ -25,7 +25,7 @@ if      else      elseif      defer
 while   for       do          switch case
 break   continue  fallthrough return
 sizeof  alignof   typeof      cast
-macro   interface where
+macro   interface where       in     as
 ```
 
 There is one deprecated keyword that may be removed in the future.

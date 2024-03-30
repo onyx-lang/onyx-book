@@ -37,6 +37,7 @@
     - [Defer](./control_flow/defer.md)
     - [For loops](./control_flow/for_loops.md)
     - [Branching](./control_flow/branching.md)
+    - [Used Locals](./control_flow/used_locals.md)
 - [Procedures](./procedures/procedures.md)
     - [Parameters](./procedures/paramters.md)
     - [Return values](./procedures/return_values.md)
@@ -77,10 +78,10 @@
     - [`#error`](./directives/error.md)
     - [`#this_package`](./directives/this_package.md)
 - [Miscellaneous](./misc/misc.md)
-    - [Compiler flags](./misc/compiler_flags.md)
-    - [`any`](./misc/any.md)
+    <!-- - [CLI](./misc/cli.md)-->
+    - [Format Strings](./misc/format_strings.md)
     - [Reflection](./misc/reflection.md)
-    - [Context](./misc/context.md)
+    - [JS Interop](./misc/js_ffi.md)
 
 <!-- - [Standard Library](./stdlib/stdlib.md)
     - [Context System](./stdlib/context.md)

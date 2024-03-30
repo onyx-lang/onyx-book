@@ -137,12 +137,10 @@ A single statement/expression in a code block can be expressed as: `[](expr)`
 [] { println("Hello"); }
 ```
 
-The practical difference between `[]()` and `[] {}` is that the latter produces a block of code, that has a `void` return type, while the former results in the type of the expression between it. The `core.array` package uses this features a lot for creating a "lambda/capture-like" syntax for its procedures.
+The practical difference between `[]()` and `[] {}` is that the latter produces a block of code, that has a `void` return type, while the former results in the type of the expression between it. The `Array` and `Slice` structures use this feature for creating a "lambda/capture-like" syntax for their procedures.
 ```onyx
-use core.array {fold}
-
 find_largest :: (x: [] $T) -> T {
-    return fold(x, 0, #(it if it > acc else acc));
+    return Slice.fold(x, 0, [x, acc](x if x > acc else acc));
 }
 ```
 

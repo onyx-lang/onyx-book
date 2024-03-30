@@ -41,3 +41,27 @@ A_CONSTANT_STRING :: "a string"
 A_CONSTANT_COMPUTED_INTEGER :: A_CONSTANT_STRING.length + A_CONSTANT_INTEGER
 ```
 
+## Targeted Bindings
+
+Bindings can be also placed into a scope other than the current package/file scope.
+Simply prefix the binding name with the name of the target scope, followed by a `.`.
+
+```onyx
+Foo :: struct {}
+
+// `bar` is bound inside of the `Foo` structure.
+Foo.bar :: () {
+}
+```
+
+Here the `bar` procedure is placed inside of the `Foo` structure. This makes it accessible
+using `Foo.bar`. When combined with the [method call operator](./../operators/methods.md), methods can be defined
+on types in Onyx in a similar manner to Go.
+
+The target scope does not have to be a structure however; it can also be a `package`, `union`,
+`enum`, or `#distinct` type.
+
+Using targeted bindings is *very common* in many Onyx programs, because it allows for
+a defining procedures that are associated with a type, *directly* on the type.
+This makes them easier to find, and able to be used by the method call operator.
+

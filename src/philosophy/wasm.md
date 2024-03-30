@@ -44,7 +44,7 @@ Onyx targets WASM for the following reasons:
 
 - **WASM is fast**. WASM is simple to compile to, resulting in very fast compilation. WASM is translated to native machine instructions on every platform resulting in very high performance as well. There are even projects that can do this compilation ahead of time, so they can truly compile a WASM binary into a native binary.
 
-- **WASM is easy**. Onyx is a hobby project. I do not have enough time or patience to work with LLVM. While it can produce great results and is an industry-leading technology for good reason, it is not known to be easy to work with. Also, targeting machine code directly would be just as hard and probably more time-consuming.
+- **WASM is easy**. Onyx is not my full-time job. I do not have enough time or patience to work with LLVM. While it can produce great results and is an industry-leading technology for good reason, it is not known to be easy to work with. Also, targeting machine code directly would be just as hard and probably more time-consuming.
 
 - **WASM is inconsequential**. While counter-intuitive, the fact Onyx compiles to WASM is mostly transparent to the end user. When using `onyx run`, Onyx feels like using a scripting language, because the WASM details are hidden from the programmer. In production cases where the end-user does not have Onyx installed, see the above bullet point.
 
