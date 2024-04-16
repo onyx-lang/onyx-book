@@ -2,7 +2,7 @@
 Procedures can take 0 or more parameters. All parameters are passed by value. Parameters that are passed by pointer copy the pointer value, not the data where the pointer is pointing.
 
 ## Syntax
-Procedure paramaters are given a name, followed by a `:`, followed by the type of that parameter. A comma (`,`) is used to delimit the different parameters.
+Procedure parameters are given a name, followed by a `:`, followed by the type of that parameter. A comma (`,`) is used to delimit the different parameters.
 ```onyx
 print_add :: (x: i32, y: i32) {
     printf("{} + {} = {}\n", x, y, x + y);
@@ -22,7 +22,7 @@ print_add :: (x, y: i32) {
 ```
 
 ## Default values
-Parameters can have default values. The default value is computed on the caller's side. This mean default values are not part of the procedures type. They are only a conveniences provided by a given procedure.
+Parameters can have default values. The default value is computed on the caller's side. This means default values are not part of the procedure's type. They are only a convenience provided by a given procedure.
 ```onyx
 print_msg_n_times :: (n: i32, msg: str = "Hello, World!") {
     for n do println(msg);

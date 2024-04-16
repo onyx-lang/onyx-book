@@ -1,4 +1,4 @@
-# `#tag`
+# #tag
 
 `#tag` is used to attach static metadata to various compile-time objects.
 This metadata can then be accessed using the `runtime.info` package.

@@ -1,7 +1,7 @@
 # Memory Management in Onyx
 
 Onyx has *manually managed memory*. Now, you're probably thinking of C, where you
-have to be careful that every `malloc` that it has a matching `free`. Onyx's memory
+have to be careful that every `malloc` has a matching `free`. Onyx's memory
 management has *some* aspect of that, but Onyx has many things that make it much easier
 to not make mistakes.
 
@@ -44,7 +44,7 @@ weird or complicated, but it actually simplifies programming and memory manageme
 
 One thing to realize is that *most* allocations you make have a well defined
 *lifetime*, or time in which they can be accessed. Sometimes that lifetime can
-be hard to describe to something like a borrow checker, but they breakdown into
+be hard to describe to something like a borrow checker, but they break down into
 four categories:
 
 - **Very short term**: Allocations that likely only live to end of a function.
@@ -92,7 +92,7 @@ The temporary allocator exists for this purpose.
 You allocate into the temporary allocator when you have something that should be
 valid for this loop, but should not live past the end of the loop.
 
-The HTTP Server package for Onyx uses this strategy, but even more aggressive.
+The HTTP Server package for Onyx uses this strategy, but is even more aggressive.
 It replaces the main allocator (aka `context.allocator`, which is used by default
 throughout the standard library), with a GC allocator. This allocator tracks
 every allocation made in it, and can free everything in a single call. Every

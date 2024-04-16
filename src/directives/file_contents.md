@@ -12,5 +12,5 @@ image_data := #file_contents "image/path/here.png";
 pixels     := convert_image_to_pixels(image_data);
 ```
 
-This way, there is file I/O to load an image from disk. It is already in the
+This way, there is no file I/O to load an image from disk. It is already in the
 binary ready to be used.

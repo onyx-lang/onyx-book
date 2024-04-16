@@ -12,7 +12,7 @@ The first way is to use curly-braces (`{}`) to surround the statements in the bl
 ```
 
 ## Single-statement Blocks
-The second way is to use place the `do` keyword before the statement to create a single-statement block. This is required in `if`, `while`, and `for` statements. You can of course write `{ stmt; }` instead of `do stmt;`  if you prefer.
+The second way is to place the `do` keyword before the statement to create a single-statement block. This is required in `if`, `while`, and `for` statements. You can of course write `{ stmt; }` instead of `do stmt;`  if you prefer.
 ```onyx
 do stmt;
 

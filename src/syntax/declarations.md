@@ -6,7 +6,7 @@ Declaring variables in Onyx is very similar to declaring variables in many other
 ```
 
 ## Inferred Types
-If the type of the initial value can be determined, then the declared type of the variable is optional, and it will be infered from the type of the initial value.
+If the type of the initial value can be determined, then the declared type of the variable is optional, and it will be inferred from the type of the initial value.
 
 ## Examples
 Here we declare a variable called `x` of type `i32`. It is guaranteed that `x` will be initialized to `0` here.
@@ -19,7 +19,7 @@ Here we declare a variable `y` explicitly as type `i32`, with an initial value o
 y: i32 = 10;
 ```
 
-Here we declare a variable `z` with an infered type. Since, the declared type was omitted, it will copy the type of the initial value. When not the presence of other type information, the literal `10` has type `i32`, so `z` will be of type `i32`.
+Here we declare a variable `z` with an inferred type. Since the declared type was omitted, it will copy the type of the initial value. In the absence of other type information, the literal `10` has type `i32`, so `z` will be of type `i32`.
 ```onyx
 z := 10;
 ```

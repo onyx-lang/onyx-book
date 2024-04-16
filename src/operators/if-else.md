@@ -18,4 +18,4 @@ main :: () {
 }
 ```
 
-While this operator should be scarely used for the sake of readable code, it can be very handy in certain circumstances.
+While this operator should be rarely used for the sake of readable code, it can be very handy in certain circumstances.

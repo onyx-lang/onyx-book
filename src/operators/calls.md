@@ -18,7 +18,7 @@ main :: () -> void {
 ## Passing Arguments
 
 Arguments are passed in between the `()`, in a comma-separated fashion.
-The type of each argument must agree with the expected paramter type, or at least be of compatible type.
+The type of each argument must agree with the expected parameter type, or at least be of compatible type.
 
 ```onyx
 foo :: (x: i32, y: str) -> void {

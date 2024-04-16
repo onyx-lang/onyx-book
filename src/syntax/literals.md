@@ -1,6 +1,6 @@
 # Literals
 ## Boolean Literals
-Onyx contains standard the boolean literals: `true` and `false`.  They must be spelled all-lowercase as they are actually just global symbols. These means if you are feeling particularly evil, you could change what `true` and `false` mean in a particular scope, but I *highly* recommend you don't.
+Onyx contains the standard boolean literals: `true` and `false`.  They must be spelled all-lowercase as they are actually just global symbols. This means if you are feeling particularly evil, you could change what `true` and `false` mean in a particular scope, but I *highly* recommend you don't.
 
 ## Numeric Literals
 Onyx contains the following numeric literals:
@@ -37,12 +37,12 @@ y := x + 100;  // 100 will be of type f32. This will work, as 100
 ```
 
 ## Character Literals
-There are two ways to write character literal in Onyx:
+There are two ways to write a character literal in Onyx:
 ```onyx
 'a'
 #char "a"
 ```
-> **Note**, Onyx used to only have `#char "a"` because the single-quotation character was being reserved for some other use. That other use did not appear in 3 years of development, so the single-quotation was given up to serve as a character litereal.
+> **Note**, Onyx used to only have `#char "a"` because the single-quotation character was being reserved for some other use. That other use did not appear in 3 years of development, so the single-quotation was given up to serve as a character literal.
 
 ## String Literals
 Onyx contains the following string-like literals:
@@ -63,11 +63,11 @@ In Onyx, there are 3 string types, `str`, `cstr`, `dyn_str`. `cstr` is analogous
 Most Onyx programs solely use `str`, as it is safer and more useful. A `str` is implemented as a 2 element structure, with a pointer to the `data`, and an integer `count`. This is safer, as a null-terminator is not necessary, so a buffer-overflow is much harder. To convert a `cstr` to `str`, use
 `string.from_cstr`.
 
-`dyn_str`, or *dynamic string*, is a string type that allows for modifying the string by appending to it. It is implemented as a dynamic array of `u8`, so any array function will work with it. To make more idomatic and readable code, the `core.string` package also has function for working with dynamic strings, such as [`append`](https://docs.onyxlang.io/packages/core.string#append) and [`insert`](https://docs.onyxlang.io/packages/core.string#insert).
+`dyn_str`, or *dynamic string*, is a string type that allows for modifying the string by appending to it. It is implemented as a dynamic array of `u8`, so any array function will work with it. To make more idiomatic and readable code, the `core.string` package also has functions for working with dynamic strings, such as [`append`](https://docs.onyxlang.io/packages/core.string#append) and [`insert`](https://docs.onyxlang.io/packages/core.string#insert).
 
 ## Built-in constants
 ```onyx
 null           // Represents an empty pointer
 null_proc      // Represents an empty function pointer
 ```
-You may be wondering why there is a separate value for an empty function pointer. This is due to the securer runtime of Onyx over C. In WebAssembly (Onyx's compile target), functions are completely separated from data. Function references are not pointers, they are indicies. For this reason, there are two different values that represent "nothing" for their respective contexts.
+You may be wondering why there is a separate value for an empty function pointer. This is due to the securer runtime of Onyx over C. In WebAssembly (Onyx's compile target), functions are completely separated from data. Function references are not pointers, they are indices. For this reason, there are two different values that represent "nothing" for their respective contexts.

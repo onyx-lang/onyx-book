@@ -1,7 +1,7 @@
 # Use declarations
 
 When a file wants to use code from another package, that package must be explicitly *used*.
-This is done with the `use` declaration. A `use` declaration binds one or more symbols to the current scope to other items in other package. If a `use` declaration is done at the top-level, the bindings are applied at *file scope*.
+This is done with the `use` declaration. A `use` declaration binds one or more symbols in the current scope to other items in another package. If a `use` declaration is done at the top-level, the bindings are applied at *file scope*.
 
 ## Simple case
 The simplest `use` declaration looks like this.

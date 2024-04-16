@@ -1,4 +1,4 @@
-# `#defined`
+# #defined
 
 When a symbol may or may not be defined due to different compilation flags,
 you can use `#defined` to test whether or not it is actually defined.

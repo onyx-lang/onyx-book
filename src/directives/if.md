@@ -1,7 +1,7 @@
 # #if
 
 `#if` is a *compile-time* if statement. It looks like a normal if
-statement, except its condition must be resolvable at compile time.
+statement, except its condition must be resolvable at compile-time.
 This is because it controls whether or not the body of the `#if`
 statement are included in the compilation.
 

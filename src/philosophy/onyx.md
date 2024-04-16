@@ -17,13 +17,13 @@ I only want Onyx to be great for the projects that *can* use Onyx and WebAssembl
 Some projects that Onyx would not be suited for would be:
 
 - Very performance critical desktop applications
-- Native libraries, through [Wasmer does have a way to do this](https://docs.wasmer.io/registry)
+- Native libraries, though [Wasmer does have a way to do this](https://docs.wasmer.io/registry)
 - Embedded environments
 
 
 To drive the point home, there will likely never be a *rewrite it in Onyx* trend like there
 is with Rust. Onyx is not aiming to replace Rust, Go, Zig, C++, or whatever your favorite
-language is. Onyx is new language, filling the rather niche purpose of supporting WebAssembly
+language is. Onyx is a new language, filling the rather niche purpose of supporting WebAssembly
 above all else. **I do not see WebAssembly being a limitation of Onyx, but rather I see Onyx
 pushing the boundaries of WebAssembly.**
 

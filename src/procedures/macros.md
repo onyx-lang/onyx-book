@@ -1,6 +1,6 @@
 # Macros
 
-Macros in Onyx are very much like procedures, with a couple notable differences. When a macro is called, it is expanded at the call site, as though its body was copy and pasted there. This means that macros can access variables in the scope of their caller.
+Macros in Onyx are very much like procedures, with a couple notable differences. When a macro is called, it is expanded at the call site, as though its body was copy-and-pasted there. This means that macros can access variables in the scope of their caller.
 ```onyx
 print_x :: macro () {
     // 'x' is not defined in this scope, but it can be used
@@ -23,7 +23,7 @@ Because macros are inlined at the call site and break traditional scoping rules,
 
 There are two kinds of macros: *block macros*, and *expression macros*. The distinguishing factor between them is the return type. If a macro returns `void`, it is a block macro. If it returns anything else, it is an expression macro.
 
-Block and expression macros behave different with respect to some of the language features. Expression macros behave exactly like an inlined procedure call with dynamic scoping.
+Block and expression macros behave differently with respect to some language features. Expression macros behave exactly like an inlined procedure call with dynamic scoping.
 ```onyx
 add_x_and_y :: macro (x: $T) -> T {
     defer println("Deferred print statement.");
@@ -89,7 +89,7 @@ say_hello :: [] {
 
 #unquote say_hello;
 ```
-Code blocks are not type checked until they are unquoted, so they can contain references to references to variables not declared within them.
+Code blocks are not type checked until they are unquoted, so they can contain references to variables not declared within them.
 
 Code blocks have their syntax because they can optionally take parameters between their `[]`. When unquoting a code block with parameters,
 you must pass an *equal or greater* number of arguments in parentheses after the variable name.
@@ -133,7 +133,7 @@ triple_macro([] {
 A single statement/expression in a code block can be expressed as: `[](expr)`
 ```onyx
 [](println("Hello"))
-// Is almost the same the as
+// is almost the same as
 [] { println("Hello"); }
 ```
 

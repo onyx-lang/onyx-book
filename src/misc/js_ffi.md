@@ -1,13 +1,13 @@
 # JS Interop
 
 Interfacing with JavaScript from Onyx is easy thanks to the `core.js` package. It was inspired from
-[`syscall/js`](https://pkg.go.dev/syscall/js), made by the wonderful people over at on the Go team.
+[`syscall/js`](https://pkg.go.dev/syscall/js), made by the wonderful people over at the Go team.
 
 The `core.js` package abstracts away the details of managing references to JS values from Onyx,
 so you are able to write code that uses JS values without caring about all the internal details.
 
 For example, here is a simple program that runs on a web browser. It creates a new `button` element,
-add a `click` event handler that will call an Onyx function, then adds the button to the page.
+adds a `click` event handler that will call an Onyx function, then adds the button to the page.
 
 ```onyx
 use core.js
