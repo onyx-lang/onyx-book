@@ -63,7 +63,7 @@ length :: (x: str) => x.count
 ```
 
 
-Overloaded procedures provide the backbone for type-generic "traits" in Onyx. Instead of making a type/object oriented system (i.e. Rust), Onyx uses overloaded procedures to provide type-specific functionality for operations such as hashing. Multiple data-structures in the `core` package need to hash a type to a 32-bit integer. `Map` and `Set` are two examples. To provide this functionality, Onyx uses an overloaded procedure called `hash` in the `core.hash` package. This example shows how to define how a `Point` structure can be hashed into a `u32`.
+Overloaded procedures provide the backbone for type-generic "traits" in Onyx. Instead of making a type/object oriented system (e.g., Rust), Onyx uses overloaded procedures to provide type-specific functionality for operations such as hashing. Multiple data-structures in the `core` package need to hash a type to a 32-bit integer. `Map` and `Set` are two examples. To provide this functionality, Onyx uses an overloaded procedure called `hash` in the `core.hash` package. This example shows how to define how a `Point` structure can be hashed into a `u32`.
 ```onyx
 Point :: struct {x, y: i32}
 

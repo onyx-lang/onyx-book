@@ -31,13 +31,13 @@ map :: (x: $T, f: (T) -> T) -> T {
     return f(x);
 }
 
-// Note that the paraentheses are optional if
+// Note that the parentheses are optional if
 // there is only one parameter.
 y := map(5, value => value + 4);
 println(y);
 ```
 
-You can also have a mix between quick procedures and normal procedures. This examples shows an alternative way of writing `-> #auto`.
+You can also have a mix between quick procedures and normal procedures. This example shows an alternative way of writing `-> #auto`.
 ```onyx
 // The => could be -> #auto, or -> T.
 find_smallest :: (items: [] $T) => {

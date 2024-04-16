@@ -61,11 +61,12 @@ for value, index: i64 in i32.[2, 3, 5, 7, 11] {
 
 ## Custom Iterators Loops
 
-The final type that `for` loops can iterate over is `Iterator(T)`. `Iterator` is a built-in type that represents a generic iterator. An `Iterator` has 4-elements:
+The final type that `for` loops can iterate over is `Iterator(T)`. `Iterator` is a built-in type that represents a generic iterator. An `Iterator` has 4 elements:
 - `data` - a pointer to the context for the iterator.
 - `next` - a function to retrieve the next value out of the iterator.
 - `remove` - an optional function to remove the current element.
 - `close` - an optional function to cleanup the iterator's context.
+
 The `core.iter` package provides many utilities for working with iterators.
 
 Here is a basic example of creating an iterator from a `range`, then using `iter.map` to double the values. Iterators are lazily evaluated, so none of the actual doubling happens until values are pulled out of the iterator by the `for` loop.

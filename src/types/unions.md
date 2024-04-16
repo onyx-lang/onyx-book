@@ -30,7 +30,7 @@ v3 := Value.{ Unknown = .{} }; // To spell a value of type 'void', you can use '
 ```
 
 We create three values, one for each variant of the union.
-To get access to the values inside of the tagged union, we have two options. Using a `switch` statement, or using variant access.
+To get access to the values inside of the tagged union, we have two options: using a `switch` statement, or using variant access.
 
 We can use `switch` statement over our tagged union value, and use a capture to extract the value stored inside.
 ```onyx
@@ -39,14 +39,14 @@ print_value :: (v: Value) {
         // `n` is the captured value
         // Notice we use `.Integer`. This is short for `Value.tag_enum.Integer`.
         case .Integer as n {
-            printf("Its an integer with value {}.\n", n);
+            printf("It's an integer with value {}.\n", n);
         }
 
         case .String as s {
-            printf("Its a string with value {\"}.\n", s);
+            printf("It's a string with value {\"}.\n", s);
         }
 
-        // All other case will be unhandled
+        // All other cases will be unhandled
         // This is still necessary to satisfy exhaustive matching
         case #default ---
     }
@@ -66,7 +66,7 @@ println(v1.String);  // prints None
 You can use the features of `Optional`s to work with these results.
 
 ## Polymorphic unions
-Like structures, unions be polymorphic and take type parameters.
+Like structures, unions can be polymorphic and take type parameters.
 
 A good example is the `Result` type from the standard library.
 It is defined as:
@@ -77,7 +77,7 @@ Result :: union (Ok_Type: type_expr, Err_Type: type_expr) {
 }
 ```
 
-These works exactly like polymorphic structures when it comes to using them in procedure definitions and the like.
+These work exactly like polymorphic structures when it comes to using them in procedure definitions and the like.
 ```onyx
 // Returns an optional of the error type of the result.
 // (entirely redundant, but gives an example)

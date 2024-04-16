@@ -5,7 +5,7 @@ Onyx has the following binary bitwise operators:
 | Operator | Use | Works on |
 | --- | --- | --- |
 | `&` | Bitwise-And | integers |
-| `|` | Bitwise-Or | integers |
+| `\|` | Bitwise-Or | integers |
 | `^` | Bitwise-Xor | integers |
 | `<<` | Bit shift left | integers |
 | `>>` | Bit shift right (logical) | integers |

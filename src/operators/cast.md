@@ -48,12 +48,12 @@ main :: () {
 In this contrived example, `base_ptr` is casted to a `&SubType` using the the *call* form of the cast operator.
 This form is slightly nicer when you are going to immediately to follow the cast operation with a postfix operation.
 In this case, `.age`.
-If this was written in prefix form, another set of parenthesis would be needed: `(cast(&SubType) base_ptr).age`.
+If this was written in prefix form, another set of parentheses would be needed: `(cast(&SubType) base_ptr).age`.
 
 
 ## Auto casting
 
-Sometimes, a cast necessary for the code to type check, but it is cumbersome to type the entire cast operation.
+Sometimes, a cast is necessary for the code to type check, but it is cumbersome to type the entire cast operation.
 Maybe the type is too long, or maybe the type is not even available because the package is not used.
 In these cases, the *auto-cast* operator can be used.
 

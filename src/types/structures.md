@@ -63,7 +63,7 @@ Structures have a variety of directives that can be applied to them to change th
 
 
 ## Polymorphic Structures
-Structures can be polymorphic, meaning they accept a number of compile time arguments, and generate a new version of the structure for each set of arguments.
+Structures can be polymorphic, meaning they accept a number of compile-time arguments, and generate a new version of the structure for each set of arguments.
 ```onyx
 // A 2d-point in any field.
 Point :: struct (T: type_expr) {
@@ -78,7 +78,7 @@ int_point: Point(i32);
 complex_point: Point(Complex);
 ```
 
-Polymorphic structures are immensely useful when creating data structure. Consider this binary tree of any type.
+Polymorphic structures are immensely useful when creating data structures. Consider this binary tree of any type.
 ```onyx
 Tree :: struct (T: type_expr) {
 	data: T;

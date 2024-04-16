@@ -17,10 +17,10 @@ Onyx's compiler is very fast. While no incredibly large programs are written in 
 
 > **Note**, Onyx's compiler is currently still **single-threaded**. If and when this issue is addressed and a multi-threaded compilation model is achieved, it is not impossible to reach over *one-million lines per second*.
 
-One large downside of partial compilation is the need to worry about, "*Did my whole project get recompiled and updated? Or am I still testing old code?*" With a poorly configured build system, it is quite easy to cause this issue, which can lead to hours of a frustrating debugging experience. This is another reason Onyx avoid partial compilation. You know for a fact every time you compile, it is a fresh build.
+One large downside of partial compilation is the need to worry about, "*Did my whole project get recompiled and updated? Or am I still testing old code?*" With a poorly configured build system, it is quite easy to cause this issue, which can lead to hours of a frustrating debugging experience. This is another reason Onyx avoids partial compilation. You know for a fact every time you compile, it is a fresh build.
 
 ## Divide files into packages
-In Onyx, every source file is part of a package. The package a file is part of is declared in the first source line of file.
+In Onyx, every source file is part of a package. The package that a file is part of is declared in the first source line of the file.
 
 ```onyx
 // There can be comments before the package declaration.
@@ -37,7 +37,7 @@ The above file declares that it is part of the `foo` package.
 All symbols declared public in this file (`func` and `Struct`) are placed in public scope of `foo`.
 
 When another file wants to use these symbols, all it has to do is `use foo`.
-Then it use `foo` to access things inside of the `foo` package.
+Then it uses `foo` to access things inside of the `foo` package.
 
 ```onyx
 package main

@@ -5,7 +5,7 @@ Procedures allow the programmer to encapsulate behavior inside a reusable form. 
 ## Syntax
 Procedures in Onyx are written simply as: `(parameters) -> return_type { body }`.
 
-Here is a simple procedures that simply prints, `Hello!`.
+Here is a simple procedure that simply prints, `Hello!`.
 ```onyx
 say_hello :: () -> void {
     println("Hello!");
@@ -39,7 +39,7 @@ procedure_as_an_expression :: () -> void {
 ```
 
 ## Optional Return Type
-If the procedure returns `void` (i.e. returns nothing), the return type can be completely removed.
+If the procedure returns `void` (i.e., returns nothing), the return type can be completely removed.
 ```onyx
 say_hello :: () {
     println("Hello, no void!");

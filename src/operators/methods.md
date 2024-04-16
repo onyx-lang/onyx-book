@@ -68,7 +68,7 @@ main :: () {
 ```
 
 Sometimes you want to pass the "object" as a pointer to the method if the method is going
-to modify the object. As a convience, the method call operator will do this automatically
+to modify the object. As a convenience, the method call operator will do this automatically
 for you, if it is possible to take the address of the left-hand side. This may feel a little
 weird but it is largely intuitive and similar to how many other languages work.
 ```onyx
@@ -107,7 +107,7 @@ While Onyx does not natively support virtual tables, there is a pattern
 that can achieve this using `use`d members on structures. Here is an
 example of the classic "Animals that can speak" inheritance argument.
 
-Create a virtual table structures that will store the function pointers.
+Create a virtual table structure that will store the function pointers.
 ```onyx
 Animal_Vtable :: struct {
     // 'greet' is a member of the vtable, and takes a pointer
@@ -149,7 +149,7 @@ Cat :: struct {
 }
 ```
 
-Now you can pass a pointer `Dog` and or a pointer to `Cat` to any procedure expecting
+Now you can pass a pointer to `Dog` or a pointer to `Cat` to any procedure expecting
 a pointer to an `Animal_Vtable`, thanks to [Sub-Type Polymorphism](../types/structures.md#sub-type-polymorphism).
 
 ```onyx

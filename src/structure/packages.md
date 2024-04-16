@@ -2,8 +2,8 @@
 
 Onyx has a relatively simple code organization system that is similar to other languages.
 To organize code, Onyx has *packages*.
-A package is collection of files that define the public and private symbols of the package.
-To use the symbols inside of a package, each *file* it is using the package.
+A package is a collection of files that define the public and private symbols of the package.
+To use the symbols inside of a package, each *file* declares that it is using the package.
 This is done with the `use` keyword.
 
 Let's say we have two source files, `foo.onyx` and `bar.onyx`
