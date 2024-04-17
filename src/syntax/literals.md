@@ -12,8 +12,8 @@ Onyx contains the following numeric literals:
 2.3f         // Floating point, of type f32.
 
 'a'          // Character literals, of type u8
-#char "a"    // Alternative character literals
 ```
+
 Integer literals are special in that they are "un-typed" until they are used. When used, they will become whatever type is needed, provided that there is not loss of precision when converting.
 Here are some examples,
 ```onyx
@@ -37,12 +37,11 @@ y := x + 100;  // 100 will be of type f32. This will work, as 100
 ```
 
 ## Character Literals
-There are two ways to write character literal in Onyx:
+Character literals are written in the following way.
 ```onyx
 'a'
-#char "a"
 ```
-> **Note**, Onyx used to only have `#char "a"` because the single-quotation character was being reserved for some other use. That other use did not appear in 3 years of development, so the single-quotation was given up to serve as a character litereal.
+> **Note**, Onyx used to have `#char "a"` because the single-quotation character was being reserved for some other use. That other use did not appear in 3 years of development, so the single-quotation was given up to serve as a character litereal.
 
 ## String Literals
 Onyx contains the following string-like literals:
