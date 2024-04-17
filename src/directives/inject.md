@@ -1,5 +1,11 @@
 # #inject
 
+> **Note,** the below documentation about `#inject` is out of date and will removed
+> in the future. This is because `#inject` is now unnecessary with recent changes 
+> to the language. You can read more about the new syntax on the [Bindings](./../syntax/bindings.md) page,
+> under the "Targeted Bindings" section.
+
+
 `#inject` is a special directive compared to most others, because it enables
 many very powerful features in the language.
 

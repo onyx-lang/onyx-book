@@ -21,7 +21,7 @@ for arr {
 	println(it);
 }
 ```
-See the [the core.array package](https://docs.onyxlang.io/packages/core.array.html) for a full list of functions provided.
+See the [the Array structure](https://docs.onyxlang.io/packages/builtin.html#Array) for a full list of functions provided.
 
 Dynamic arrays store an Allocator to know how to request more memory for the array. By default `context.allocator` is used. However, an alternate allocator can be specified in `Array.make` or `Array.init`.
 

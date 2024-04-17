@@ -36,7 +36,7 @@ depending on if something else was or was not defined.
 
 As an example, you could have a set of procedures that can be overridden by the end-user
 of your library. But if they want to use the defaults, they can be still be defined
-automatically. A combination of `#inject`, `#defined`, and `#if` makes this works well.
+automatically. A combination of targeted bindings, `#defined`, and `#if` makes this works well.
 
 In the library, you would use `#if` and `#defined` to test if a certain flag was defined.
 ```onyx
@@ -49,19 +49,17 @@ package your_library
 }
 ```
 
-Then the consumer of the library can use `#inject` to define the flag and functions if necessary.
+Then the consumer of the library can use targeted bindings to define the flag and functions if necessary.
 ```onyx
 package main
 
 use your_library
 
-// Override procedures using #inject
-#inject your_library {
-	CUSTOM_PROCEDURES :: true
+// Override procedures with targeted binding.
+your_library.CUSTOM_PROCEDURES :: true
 
-	do_thing_one :: () { println("Overridden thing 1!"); }
-	do_thing_two :: () { println("Overridden thing 2!"); }
-}
+your_library.do_thing_one :: () { println("Overridden thing 1!"); }
+your_library.do_thing_two :: () { println("Overridden thing 2!"); }
 
 main :: () {
 	your_library.do_thing_one(); // Overridden thing 1!

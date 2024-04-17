@@ -45,7 +45,7 @@ weird or complicated, but it actually simplifies programming and memory manageme
 One thing to realize is that *most* allocations you make have a well defined
 *lifetime*, or time in which they can be accessed. Sometimes that lifetime can
 be hard to describe to something like a borrow checker, but they breakdown into
-three categories:
+four categories:
 
 - **Very short term**: Allocations that likely only live to end of a function.
 - **Short term**: Allocations that live until the end of the main loop.

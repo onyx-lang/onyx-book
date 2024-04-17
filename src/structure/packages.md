@@ -112,7 +112,7 @@ It contains several definitions needed by the compiler, for example `Optional` a
 These definitions live in `core/builtin.onyx`, which is a slight misnomer because the `builtin` package is separate from the `core` module.
 
 `builtin` is also special because its public scope is mapped to the *global* scope of the program.
-This means that anything defined (or [`#inject`ed](./../directives/inject.md)) into the package is available *without* using any packages.
+This means that anything defined in the package is available *without* using any packages.
 
 ### `runtime` package
 
