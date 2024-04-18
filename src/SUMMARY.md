@@ -37,6 +37,7 @@
     - [Defer](./control_flow/defer.md)
     - [For loops](./control_flow/for_loops.md)
     - [Branching](./control_flow/branching.md)
+    - [Do Blocks](./control_flow/do_block.md)
     - [Used Locals](./control_flow/used_locals.md)
 - [Procedures](./procedures/procedures.md)
     - [Parameters](./procedures/paramters.md)
