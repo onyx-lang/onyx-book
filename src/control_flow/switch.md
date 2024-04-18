@@ -11,7 +11,7 @@ switch value {
 
 	case 10 do println("The value was 10.");
 
-	case #default {
+	case _ {
 		println("The value was not recognized.");
 	}
 }
@@ -36,10 +36,10 @@ switch 5 {
 
 ## Ranges
 
-`switch` statements also allow you to specify a range of values using `..`. Note that this range is inclusive on *both* ends.
+`switch` statements also allow you to specify a range of values using `..` or `..=`.
 ```onyx
 switch 5 {
-	case 5..10 {
+	case 5 ..= 10 {
 		println("The value was between 5 and 10.");
 	}
 }
