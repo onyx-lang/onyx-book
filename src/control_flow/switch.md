@@ -16,7 +16,19 @@ switch value {
 	}
 }
 ```
-`#default` is used for the default case. The default case must be listed lexicographical as the last case.
+`_` is used for the default case. The default case must be listed lexicographical as the last case.
+
+It is also possible to match multiple values using a comma-separated list.
+```onyx
+value := 10;
+
+switch value {
+    case 5, 10, 15 {
+        println("The value was 5, 10, or 15.");
+    }
+}
+```
+
 
 ## `fallthrough`
 
@@ -55,7 +67,7 @@ Point :: struct {x, y: i32;}
 switch Point.{10, 20} {
 	case .{0,   0} do println("0, 0");
 	case .{10, 20} do println("10, 20");
-	case #default  do println("None of the above.");
+	case _         do println("None of the above.");
 }
 ```
 

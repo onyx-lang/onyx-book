@@ -48,7 +48,7 @@ print_value :: (v: Value) {
 
         // All other case will be unhandled
         // This is still necessary to satisfy exhaustive matching
-        case #default ---
+        case _ ---
     }
 }
 
@@ -80,7 +80,7 @@ Result :: union (Ok_Type: type_expr, Err_Type: type_expr) {
 These works exactly like polymorphic structures when it comes to using them in procedure definitions and the like.
 ```onyx
 // Returns an optional of the error type of the result.
-// (entirely redundant, but gives an example)
+// This is entirely redundant, since `result.Err` would give the same result.
 get_err :: (result: Result($Ok, $Err)) -> ? Err {
     return result.Err;
 }
