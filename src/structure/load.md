@@ -12,43 +12,31 @@ $ onyx build source1.onyx source2.onyx source3.onyx ...
 ## Using `#load` directives
 
 The idiomatic way of loading files into a program is using the `#load` directive.
-The `#load` directive takes a compile-time string as the file name, and tells the compiler to load that file.
+The `#load` directive is followed by a compile-time string as the file name, and tells the compiler to load that file.
 
-There are a couple of things to understand as to how the compiler finds the file to load, given a file name.
-- If the file name starts with `./`, then the file is always loaded *relative* to the path of the file containing the `#load` directive.
-- Otherwise, the *load path* is searched for a file matching that name.
-    - By default, the load path has two directories in it: `.` and `ONYX_PATH`.
+The given file name is used to search relative to path of the file that contains the `#load` directive.
+
+The file name can also be of the form `"mapped_directory:filename"`.
+In this case, the file will be searched for in the given mapped directory.
+By default, there is only one mapped directory named `core`, and it is set to `$ONYX_PATH/core`.
+Other mapped directories can be set using the command-line argument `--map-dir`.
 
 > Note, the compiler automatically caches the full path to every file loaded, so no file can be loaded more than once, even if multiple `#load` directives would load it.
 
 ```onyx
-// Search the load path for file_a
+// Load file_a from the same directory as the current file.
 #load "file_a"
 
-// Load file_b from the same directory as the current file.
-#load "./file_b"
-```
-
-## Modifying the load path
-
-There are two ways to append to the list of directories searched when loading.
-The first is to use the `-I` flags on the CLI.
-```sh
-onyx build -I /path/to/include source.onyx
-```
-
-The second is to use the `#load_path` directive. It acts the same way as the CLI flag, except it can be controlled using variables and static-if statements in the program.
-```onyx
-#load_path "/path/to/include"
-
-#load "a_file_in_path_to_include"
+// Load file_b from the mapped directory 'foo'.
+#load "foo:file_b"
 ```
 
 ## Using `#load_all`
 
 Sometimes, every file in a directory needs to be loaded.
 To make this less tedious, Onyx has the `#load_all` directive.
-Much like `#load` it takes a compile-time string as the *path*, and it will load every `.onyx` file in that path, **but does not perform a recursive search**.
+Much like `#load` it takes a compile-time string as the *path* relative to the current file,
+and it will load every `.onyx` file in that path, **but does not perform a recursive search**.
 Any sub-directories will need a separate `#load_all` directive.
 
 ```onyx
