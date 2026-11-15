@@ -1,6 +1,6 @@
 # Procedure calls
 
-Calling a procedures use the traditional postfix `()` operator.
+Calling a procedure uses the traditional postfix `()` operator.
 Simply place `()` after the procedure you would like to call.
 
 ```onyx

@@ -57,3 +57,9 @@ Import[3]:
 > the WASI backend, these foreign functions will be resolved for you. However,
 > when using JavaScript as your runtime, you will need to provide definitions for
 > each imported procedure. See [this MDN article](https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API) for more details.
+
+## Aggregate returns
+
+A function that returns a struct, array, dynamic array, union, or multiple values takes the return slot as WebAssembly parameter 0 and has no WebAssembly result. The caller reads the value back from that slot. A struct that is a single basic value still returns as a WebAssembly value.
+
+Onyx-to-Onyx calls follow this convention. JavaScript, C, and other hosts that call an export returning one of those types must use it as well. [`#object`](./object.md) uses the same convention so linked C objects agree with Onyx.

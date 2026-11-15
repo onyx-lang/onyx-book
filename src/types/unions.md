@@ -8,8 +8,8 @@ They are written using the `union` keyword and look much like structures.
 Here is an example of a tagged union.
 ```onyx
 Value :: union {
-    // First variant, called Int, stores an i32.
-    Int: i32;
+    // First variant, called Integer, stores an i32.
+    Integer: i32;
 
     // Second variant, called String, stores a str.
     String: str;
@@ -18,13 +18,13 @@ Value :: union {
     Unknown: void;
 }
 ```
-This union has three variants called `Int`, `String`, and `Unknown`.
+This union has three variants called `Integer`, `String`, and `Unknown`.
 They store an `i32`, `str` and nothing respectively.
 Internally there is also an `enum` made to store these variant tags. You can access it using `Value.tag_enum`.
 
 To create a value out of a union type, it looks like a structure literal, except there must be *exactly one* variant listed by name, with its corresponding value.
 ```onyx
-v1 := Value.{ Int = 123 };
+v1 := Value.{ Integer = 123 };
 v2 := Value.{ String = "string value" };
 v3 := Value.{ Unknown = .{} }; // To spell a value of type 'void', you can use '.{}';
 ```
@@ -46,7 +46,7 @@ print_value :: (v: Value) {
             printf("Its a string with value {\"}.\n", s);
         }
 
-        // All other case will be unhandled
+        // All other cases will be unhandled
         // This is still necessary to satisfy exhaustive matching
         case _ ---
     }
@@ -65,8 +65,10 @@ println(v1.String);  // prints None
 ```
 You can use the features of `Optional`s to work with these results.
 
+A `switch` capture can bind a pointer to the payload instead of a copy. `case .Integer as &n` makes `n` an `&i32`. The same form works for an optional: `case .Some as &p`.
+
 ## Polymorphic unions
-Like structures, unions be polymorphic and take type parameters.
+Like structures, unions can be polymorphic and take type parameters.
 
 A good example is the `Result` type from the standard library.
 It is defined as:
@@ -77,7 +79,7 @@ Result :: union (Ok_Type: type_expr, Err_Type: type_expr) {
 }
 ```
 
-These works exactly like polymorphic structures when it comes to using them in procedure definitions and the like.
+These work exactly like polymorphic structures when it comes to using them in procedure definitions and the like.
 ```onyx
 // Returns an optional of the error type of the result.
 // This is entirely redundant, since `result.Err` would give the same result.

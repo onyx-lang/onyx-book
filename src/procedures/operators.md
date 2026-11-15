@@ -8,7 +8,7 @@ Onyx's operator overloading syntax is very similar to its `#match` syntax, excep
 
 The following operators can be overloaded:
 ```onyx
-Arithemetic: +  -   *   / %
+Arithmetic:  +  -   *   / %
 Comparison:  == !=  <   <= > >=
 Bitwise:     &  |   ^   << >> >>>
 Logic:       && ||

@@ -9,7 +9,7 @@ Color :: enum {
 
 col := Color.Red;
 ```
-Notice that enums use `;` to delineate between members.
+Notice that enums use `;` to delineate between members. The semicolon before the closing `}` is optional. Semicolons between members on the same line are still required, so `enum { Red; Green; Blue }` is legal and `enum { Red Green Blue }` is not.
 
 By default, enum members are automatically assigned incrementing values, starting at 0. So above, `Red` would be 0, `Green` would be 1, `Blue` would be 2. The values can be overridden if desired. A `::` is used because these are constant bindings.
 ```onyx

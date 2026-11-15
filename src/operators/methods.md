@@ -19,7 +19,7 @@ Much like the pipe operator, it makes the left-hand side of the operator the *fi
 to the function call. However, unlike the pipe operator, it also resolves the function from
 within the scope of the left-hand side. It also automatically takes the address of the left-hand
 side if the method expects a pointer as the first argument. These features together make for
-a good aproximation to an inheritance-less OOP programming model.
+a good approximation of an inheritance-less OOP programming model.
 
 
 ## Object-Oriented Programming
@@ -68,7 +68,7 @@ main :: () {
 ```
 
 Sometimes you want to pass the "object" as a pointer to the method if the method is going
-to modify the object. As a convience, the method call operator will do this automatically
+to modify the object. As a convenience, the method call operator will do this automatically
 for you, if it is possible to take the address of the left-hand side. This may feel a little
 weird but it is largely intuitive and similar to how many other languages work.
 ```onyx
@@ -94,7 +94,7 @@ main :: () {
 
     // Call the set_name method
     foo->set_name("Jane");
-    // Note that this is equivalent to the follow (notice the &foo).
+    // Note that this is equivalent to the following (notice the &foo).
     // foo.set_name(&foo, "Jane")
 
     foo->say_name();
@@ -149,7 +149,7 @@ Cat :: struct {
 }
 ```
 
-Now you can pass a pointer `Dog` and or a pointer to `Cat` to any procedure expecting
+Now you can pass a pointer to `Dog` or a pointer to `Cat` to any procedure expecting
 a pointer to an `Animal_Vtable`, thanks to [Sub-Type Polymorphism](../types/structures.md#sub-type-polymorphism).
 
 ```onyx
@@ -161,8 +161,8 @@ main :: () {
     dog := Dog.{};
     cat := Cat.{};
 
-    say_greeting(&dog);
-    say_greeting(&cat);
+    say_greeting(&dog, "Sam");
+    say_greeting(&cat, "Sam");
 }
 ```
 

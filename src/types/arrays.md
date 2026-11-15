@@ -33,6 +33,19 @@ floats := .[5.0f, 6.0f, 7.0f];
 assert((typeof floats) == [3] f32, "type does not match");
 ```
 
+An untyped array literal infers its element type when it is subscripted.
+
+```onyx
+first := .[10, 20, 30][0];
+```
+
+A top-level array of struct literals is accepted when every element is known at compile time.
+
+```onyx
+Point :: struct { x, y: i32; }
+offsets :: Point.[ .{ 1, 0 }, .{ 0, 1 } ];
+```
+
 ## Array Programming
 
 Fixed-size arrays have builtin array programming support. This allows the `+`, `-`, `*`, `/` operators to be used with them.

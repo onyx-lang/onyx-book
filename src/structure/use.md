@@ -33,7 +33,7 @@ func :: () {
 This `use` declaration extracts the symbol `something_interesting` and binds a symbol of the same name to it in the current file.
 
 ## Avoiding name conflicts
-Sometime, you want to rename a symbol due to a name conflict, or just to shorten your code.
+Sometimes, you want to rename a symbol due to a name conflict, or just to shorten your code.
 You can do so like this.
 ```onyx
 package foo
@@ -73,7 +73,7 @@ func :: () {
     
     // OR
 
-    bar.something_intesting():
+    bar.something_interesting();
 }
 ```
 

@@ -2,7 +2,6 @@
 `for` loops are the most powerful control flow mechanism in Onyx. They enable:
 - Iteration shorthand
 - Custom iterators
-- Removing elements
 - Scoped resources
 
 ## Range-Based Loop
@@ -52,7 +51,7 @@ for value, index in i32.[2, 3, 5, 7, 11] {
     printf("{}: {}", index, value);
 }
 
-// Explictly change the type to i64
+// Explicitly change the type to i64
 for value, index: i64 in i32.[2, 3, 5, 7, 11] {
     printf("{}: {}", index, value);
 }
@@ -61,11 +60,10 @@ for value, index: i64 in i32.[2, 3, 5, 7, 11] {
 
 ## Custom Iterators Loops
 
-The final type that `for` loops can iterate over is `Iterator(T)`. `Iterator` is a built-in type that represents a generic iterator. An `Iterator` has 4-elements:
+The final type that `for` loops can iterate over is `Iterator(T)`. `Iterator` is defined in `core.iter` and re-exported as `builtin.Iterator` when `core` is loaded. An `Iterator` has three elements:
 - `data` - a pointer to the context for the iterator.
-- `next` - a function to retrieve the next value out of the iterator.
-- `remove` - an optional function to remove the current element.
-- `close` - an optional function to cleanup the iterator's context.
+- `next` - a function that returns the next value as `? T`. `None` ends the loop.
+- `close` - an optional function to clean up the iterator's context.
 The `core.iter` package provides many utilities for working with iterators.
 
 Here is a basic example of creating an iterator from a `range`, then using `iter.map` to double the values. Iterators are lazily evaluated, so none of the actual doubling happens until values are pulled out of the iterator by the `for` loop.
@@ -80,17 +78,20 @@ for doubled_iterator {
 
 The above `for` loop loosely translates to the following code.
 ```onyx
-doubled_iterator := iter.as_iter(1 .. 5)
-                 |> iter.map(x => x * 2);
+doubled_iterator := Iterator.from(1 .. 5)
+                 |> Iterator.map(x => x * 2);
 
 {
-    defer doubled_iterator.close(doubled_iterator.data);
+    defer Iterator.close(doubled_iterator);
 
     while true {
-        it, cont := doubled_iterator.next(doubled_iterator.data);
-        if !cont do break;    
-
-        println(it);
+        value := Iterator.next(doubled_iterator);
+        switch value {
+            case .None do break;
+            case .Some as it {
+                println(it);
+            }
+        }
     }
 }
 ```
@@ -99,34 +100,14 @@ doubled_iterator := iter.as_iter(1 .. 5)
 
 The `close` function of an `Iterator` is always called after the loop exits. If this is not the desired behavior, you can add `#no_close` after `for` to forego inserting the `close` call.
 ```onyx
-doubled_iterator := iter.as_iter(1 .. 5)
-                 |> iter.map(x => x * 2);
+doubled_iterator := Iterator.from(1 .. 5)
+                 |> Iterator.map(x => x * 2);
 for #no_close doubled_iterator {
     println(it);
 }
 
 // Later:
-iter.close(doubled_iterator);
-```
-
-### `#remove`
-
-The final feature of `Iterator`-based `for` loops is the `#remove` directive. If the current `Iterator` supports it, you can write `#remove` to remove the current element from the iterator.
-```onyx
-// Make a dynamic array from a fixed-size array.
-arr := Array.make(u32.[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-// as_iter with a pointer to a dynamic array 
-// supports #remove.
-for iter.as_iter(&arr) {
-    if it % 2 == 0 {
-        // Remove all even numbers
-        #remove;
-    }
-}
-
-// Will only print odd numbers
-for arr do println(it);
+Iterator.close(doubled_iterator);
 ```
 
 ## `#first`
@@ -159,7 +140,7 @@ If you provide the incorrect type, it is a compile error.
 ```onyx
 strings := str.["A", "list", "of", "strings"];
 
-// Explcitly say that value is a str
+// Explicitly say that value is a str
 for value: str in strings {
     println(value)
 }

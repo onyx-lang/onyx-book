@@ -28,3 +28,27 @@ while false {
 }
 ```
 
+ `while expr as name` and `while expr as &name` extract an optional the same way [`if`](./ifs.md) does. This can be used for a generic "iterable" pattern, where anything that return `? T` can be treated as an iterator.
+```onyx
+num_iterator := Iterator.from(1 .. 10)
+
+// `Iterator.next` returns a `? i32`
+while Iterator.next(num_iterator) as num {
+    println(num)
+}
+
+// Using a closure to store internal state
+counter :: (start, end: $T, incr: T = 1) -> () -> ? T {
+    value := start
+    return () use () -> ? T {
+        if value >= end do return .None
+        defer value += incr
+        return value
+    }
+}
+
+c := counter(1, 10)
+while c() as num {
+    println(num)
+}
+```

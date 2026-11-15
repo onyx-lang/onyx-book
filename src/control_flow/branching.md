@@ -1,5 +1,5 @@
 # Branching
-The following keywords can be used to branch form a block of code early.
+The following keywords can be used to branch from a block of code early.
 
 ## `break`
 `break` can be used to jump execution to after the body of the enclosing loop.
@@ -22,7 +22,7 @@ for 0 .. 10 {
 ```
 
 ## `fallthrough`
-`fallthough` is discussed in the [`switch` statement](./switch.md) section.
+`fallthrough` is discussed in the [`switch` statement](./switch.md) section.
 
 ## `return`
 `return` is used to end execution of the current procedure. It is also used to provide return values.

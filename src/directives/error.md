@@ -6,7 +6,7 @@ To use it, simply place it outside of any procedure, and
 include a compile-time string that is the error message.
 
 ```onyx
-#error "This is a static error the prevents this program from compiling."
+#error "This is a static error that prevents this program from compiling."
 
 main :: () {
 }

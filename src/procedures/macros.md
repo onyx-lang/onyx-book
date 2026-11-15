@@ -65,6 +65,18 @@ foo :: () -> i32 {
 ```
 In `foo`, the call to `defer_a_statement` adds the deferred statement to `foo`. Then the first `println` is run. Then the `early_return` macro returns the value 10 from `foo`. Finally, the deferred print statement is run.
 
+The call has to be a statement. `return early_return()` is not an expression, because a void block macro has no value. A statement call does count as a return from the caller, so a procedure whose every path calls one satisfies "all paths return."
+
+```onyx
+early :: macro () {
+    return 10;
+}
+
+foo :: () -> i32 {
+    early();
+}
+```
+
 This distinction between block and expression macros allows for an automatic destruction pattern.
 ```onyx
 // These are not the actual procedures to use mutexes.
@@ -79,6 +91,37 @@ critical_procedure :: () {
 ```
 `grab_mutex` will automatically release the mutex at the end of `critical_procedure`. This pattern of creating a resource, and then freeing it automatically using `defer` is very common.
 
+## `use` on a parameter
+
+`use` on a macro parameter brings the struct's members into the expansion, the same way `use` does for a procedure parameter. A pointer to a struct works the same way. The parameter name itself stays in scope.
+
+```onyx
+Vec2 :: struct { x, y: i32; }
+
+print_x :: macro (use v: Vec2) {
+    printf("{}\n", x);
+}
+
+print_ptr_x :: macro (use v: &Vec2) {
+    printf("{}\n", x);
+}
+```
+
+## `any`
+
+A macro parameter of type `any` copies the argument into a temporary and passes `any.{ &tmp, typeof tmp }`. An argument that is already `any` is passed through. `..any` becomes an array of those values, which can be cast to `[] any` or iterated. See [Variadic procedures](./variadic.md) for `..any` on procedures.
+
+```onyx
+print_any :: macro (x: any) {
+    println(x.type);
+}
+
+print_anys :: macro (args: ..any) {
+    for arg in args {
+        println(arg.type);
+    }
+}
+```
 
 ## Code Blocks
 To make macros even more powerful, Onyx provides compile-time code blocks. Code blocks capture code and treat it as a compile-time object that can be passed around. Use `[] {}` to create a code block. Use `#unquote` to "paste" a code block.

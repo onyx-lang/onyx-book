@@ -31,3 +31,15 @@ if value, errored := can_error(); !errored {
 // value is not visible here.
 ```
 
+## Optional extract
+
+`if expr as name` binds the inner value of a `? T` when one is present. `if expr as &name` binds a pointer into that payload. The binding is visible in the `else` branch as well. The pointer is `null` when there was no value. The same syntax works on `elseif` and `while`. See [Optional](../types/optional.md).
+
+```onyx
+if result as v {
+    println(v);
+} else {
+    println("empty");
+}
+```
+

@@ -35,3 +35,17 @@ handle_player_moved = (x, y, z) => {
 handle_player_moved(10, 20, 30);
 ```
 
+## Nested procedure types
+
+Procedure types associate to the right. `(i32) -> (i32) -> i32` means `(i32) -> ((i32) -> i32)`. A value of that type can be called immediately.
+
+```onyx
+add :: (x: i32) -> (i32) -> i32 {
+    return (y: i32) use (x) => x + y;
+}
+
+sum := add(3)(4); // 7
+```
+
+Parentheses around a multi-value return are unchanged. `() -> (i32, i32)` is two return values, not a nested procedure type. Returning a nested procedure from a closure is a separate feature; see [Closures](../procedures/closures.md).
+

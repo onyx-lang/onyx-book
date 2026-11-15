@@ -68,7 +68,7 @@ main :: () {
 `any` can also be used for variadic arguments of different types.
 
 ```onyx
-/// Prints all of the 
+/// Prints the type of each argument.
 many_args :: (values: ..any) {
     for value in values {
         printf("{} ", value.type);
@@ -77,14 +77,14 @@ many_args :: (values: ..any) {
 
 main :: () {
     many_args(10, "Hello", context);
-    // Prints: i32 str, OnyxContext
+    // Prints: i32 str OnyxContext
 }
 ```
 
 To use the data inside of an `any`, you have to write code that handles the different
 types, or kinds of types that you expect. You can either check for concrete types explicitly,
 or use runtime type information to handle things dynamically. To get the type information for a given type,
-use the [`runtime.info.get_type_info`](https://docs.onyxlang.io/packages/runtime.info.html#get_type_info) procedure, of the `info` method on the `type_expr`.
+use the [`runtime.info.get_type_info`](https://docs.onyxlang.io/packages/runtime.info.html#get_type_info) procedure, or the `info` method on the `type_expr`.
 
 ```onyx
 print_size :: (v: any) {
@@ -106,7 +106,7 @@ main :: () {
 ```
 
 In this contrived example, `print_size` checks the type of the `any` against explicit
-types using a [switch expression](#), defaulting to -1 if the type is not one of them.
+types using a [switch expression](../control_flow/switch.md), defaulting to -1 if the type is not one of them.
 
 For some applications of `any` this is perfectly acceptable, but for others, a more
 generalized approach might be necessary. In such cases, you can use runtime type information to introspect the type.

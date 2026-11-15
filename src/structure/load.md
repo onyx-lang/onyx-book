@@ -31,17 +31,17 @@ Other mapped directories can be set using the command-line argument `--map-dir`.
 #load "foo:file_b"
 ```
 
-## Using `#load_all`
+## Loading a directory
 
-Sometimes, every file in a directory needs to be loaded.
-To make this less tedious, Onyx has the `#load_all` directive.
-Much like `#load` it takes a compile-time string as the *path* relative to the current file,
-and it will load every `.onyx` file in that path, **but does not perform a recursive search**.
-Any sub-directories will need a separate `#load_all` directive.
+`#load` can name a directory instead of a file. It loads every `.onyx` file in that directory and does not search subdirectories.
 
 ```onyx
-#load_all "/path/to/include"
+#load "include"
+```
 
-#load_all "/path/to/include/subdirectory"
+`#load_recursive` is the same, and it also loads `.onyx` files in subdirectories.
+
+```onyx
+#load_recursive "include"
 ```
 

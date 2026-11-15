@@ -21,7 +21,7 @@ printf("*p is {}.\n", *p);
 Normal pointers in Onyx do *not* support pointer addition nor subscripting, i.e. `x[i]`.
 To do this, a *multi-pointer* must be used.
 
-Multi-pointers are written as `[&] T`. They implicitly convert to-and-from normal pointer types, so they do not add much to the safely of a program, but they do allow for expressed intent when using pointers. Consider these two procedures; there is a clear difference between how the pointers are going to be used.
+Multi-pointers are written as `[&] T`. They implicitly convert to-and-from normal pointer types, so they do not add much to the safety of a program, but they do allow for expressed intent when using pointers. Consider these two procedures; there is a clear difference between how the pointers are going to be used.
 ```onyx
 proc_1 :: (out: &i32) {
     *out = 10;
@@ -33,7 +33,7 @@ proc_2 :: (out: [&] i32) {
     }
 }
 ```
-> **Note**, pointer addition and substraction on `[&] T` steps with `sizeof(T)`.
+> **Note**, pointer addition and subtraction on `[&] T` steps with `sizeof(T)`.
 >
 > So, `cast([&] i32, 0) + 1 == 4`.
 

@@ -77,5 +77,12 @@ switch Point.{10, 20} {
 
 ## Initializers
 
-`switch` statements can also optionally have an *initializer*, like [`while`](./while.md) and [`if`](./ifs.md) statements.
+`switch` statements can also optionally have an *initializer*, like [`while`](./while.md) and [`if`](./ifs.md) statements. The names declared there are in scope for the whole `switch`.
+
+```onyx
+switch value := compute(); value {
+    case 0 do println("zero");
+    case _ do println(value);
+}
+```
 

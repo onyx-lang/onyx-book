@@ -20,8 +20,8 @@ Whether using dynamic arrays, `io.Reader`s, or `os.File`s, this pattern is all o
 To make it a little easier to type, and to allow the author of the type to define how to
 clean up the resource allocation, you can simply place the `use` keyword in front of the variable
 definition. This will automatically insert a deferred call to the builtin procedure `__dispose_used_local`.
-This procedure can be overloaded to define how to dispose of any resource. It also contains an
-overload for `delete`, which means anything you can call `delete` on, you can already `use`.
+This procedure can be overloaded to define how to dispose of any resource. The default overload is
+`delete`, which means anything you can call `delete` on, you can already `use`.
 
 This is the same example as before, but with `use` instead.
 

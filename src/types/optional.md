@@ -1,6 +1,6 @@
 # Optional
 Optional types in Onyx represent something that may or may not contain a value.
-They are simply written as `? T`, where `T` is the type that they optional may contain.
+They are simply written as `? T`, where `T` is the type that the optional may contain.
 > You may wonder why its written as `? T` instead of `T?`. This is to prevent ambiguity. For example,
 > if you see `[] T?`, is this an optional slice of `T` (`([] T)?`)? or a slice of optional `T` (`[] (T?)`)? To avoid this problem
 > the optional specifier is placed in the same place as the pointer/slice/etc. specifiers.
@@ -46,8 +46,9 @@ array_last(.[]);        // returns None
 If we wanted to get the value stored in an optional, we have a couple of options. We could,
 - Use one of the builtin methods on `Optional`, like `unwrap`, `value_or`, or `or_else`.
 - Use the try operator (`?`) force getting the value, or returning `.{}` from the nearest block.
-- Use the coalese operator (`??`).
+- Use the coalesce operator (`??`).
 - Use a `switch` statement with a capture
+- Use `if` or `while` with `as` to bind the inner value
 
 ```onyx
 // `o` is an optional i32.
@@ -68,5 +69,34 @@ switch o {
     case .Some as v6 {
         // v6 is the value
     }
+}
+
+// `as &name` binds a pointer into the payload.
+switch o {
+    case .Some as &p {
+        *p = 0;
+    }
+
+    case .None ---
+}
+```
+
+## Extracting in `if` and `while`
+
+`if expr as name` tests a `? T` and, when a value is present, binds that value for the body. `as &name` binds a pointer into the payload instead. The binding is in scope in both branches, including `elseif`. In the `else` branch the pointer form is `null`. The same two forms work on `while`. See also [`if`](../control_flow/ifs.md).
+
+```onyx
+if result as v {
+    println(v);
+}
+
+if result as &f {
+    f.x = "mutated";
+} else {
+    // f is null
+}
+
+while next() as item {
+    println(item);
 }
 ```

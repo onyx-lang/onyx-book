@@ -24,6 +24,6 @@ Distinct types can be casted directly to their underlying type, and vice versa. 
 It should be noted that when a distinct type is made, *none of the operators* defined for the base type are defined for the new type. In the previous example, two `Time` values would not be comparable unless a specific operator overload was provided.
 ```onyx
 Time :: #distinct u32
-#operator == (t1, t2: Time) => cast(u32) == cast(u32) t2;
+#operator == (t1, t2: Time) => cast(u32) t1 == cast(u32) t2;
 ```
 

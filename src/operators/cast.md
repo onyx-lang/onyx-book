@@ -79,6 +79,10 @@ main :: () {
 }
 ```
 
+## `From.from`
+
+`cast` reinterprets a value as another type. Building one type from another is [`From.from`](../procedures/polymorphic.md). `i: i32 = From.from(v)` calls `i32.from` when that method exists, and returns `v` unchanged when the types already match.
+
 ## No "magic" casts
 
 Onyx does not have "special" or "magic" casts between two completely unrelated types, such as strings and numbers.

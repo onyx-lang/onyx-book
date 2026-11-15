@@ -68,5 +68,5 @@ Overloaded procedures provide the backbone for type-generic "traits" in Onyx. In
 Point :: struct {x, y: i32}
 
 #overload
-core.hash.hash :: (p: Point) => cast(u32) (x ^ y);
+core.hash.hash :: (p: Point) => cast(u32) (p.x ^ p.y);
 ```

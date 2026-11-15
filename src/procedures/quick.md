@@ -1,7 +1,7 @@
 # Quick procedures
-With [polymorphic variables](./polymorphic.md) and [`#auto`](./automatic_return_type.md), it is possible to write a completely type-generic procedure in Onyx.
+With [polymorphic variables](./polymorphic.md) and an [automatic return type](./automatic_return_type.md), it is possible to write a completely type-generic procedure in Onyx.
 ```onyx
-print_iterator :: (msg: $T, iterable: $I) -> #auto {
+print_iterator :: (msg: $T, iterable: $I) -> _ {
     println(msg);
     for iterable {
         println(it);
@@ -31,15 +31,15 @@ map :: (x: $T, f: (T) -> T) -> T {
     return f(x);
 }
 
-// Note that the paraentheses are optional if
+// Note that the parentheses are optional if
 // there is only one parameter.
 y := map(5, value => value + 4);
 println(y);
 ```
 
-You can also have a mix between quick procedures and normal procedures. This examples shows an alternative way of writing `-> #auto`.
+You can also mix quick procedures and normal procedures. This example shows an alternative way of writing `-> _`.
 ```onyx
-// The => could be -> #auto, or -> T.
+// The => could be -> _, or -> T.
 find_smallest :: (items: [] $T) => {
     small := items[0];
     for items {

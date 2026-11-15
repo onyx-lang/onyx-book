@@ -28,6 +28,13 @@ p1 := Point.{x=10, y=20};
 p2 := Point.{10, 20};
 ```
 
+A field can be read from a literal, including through `typeof`.
+
+```onyx
+typeof Point.{}.x  // i32
+Point.{ 8, 9 }.x   // 8
+```
+
 ## Defaulted Members
 Members can be given default values. These values are used in structure literals if no other value is provided for a member. They are also used by `__initialize` to initialize a structure.
 ```onyx
@@ -78,7 +85,7 @@ int_point: Point(i32);
 complex_point: Point(Complex);
 ```
 
-Polymorphic structures are immensely useful when creating data structure. Consider this binary tree of any type.
+Polymorphic structures are immensely useful when creating data structures. Consider this binary tree of any type.
 ```onyx
 Tree :: struct (T: type_expr) {
 	data: T;
@@ -94,7 +101,7 @@ HashMap :: struct (Key: type_expr, Value: type_expr, hash: (Key) -> u32) {
 	// ...
 }
 
-put :: (map: ^HashMap($Key, $Value, $hash), key: Key, value: Value) {
+put :: (map: &HashMap($Key, $Value, $hash), key: Key, value: Value) {
 	h := hash(key);
 	// ...
 }
@@ -105,7 +112,7 @@ HashMap :: struct (Key: type_expr, Value: type_expr, hash: (Key) -> u32) {
 	// ...
 }
 
-put :: (map: ^HashMap, key: map.Key, value: map.Value) {
+put :: (map: &HashMap, key: map.Key, value: map.Value) {
 	h := map.hash(key);
 	// ...
 }
@@ -149,7 +156,7 @@ Joe :: struct {
 	pet_name: str;
 }
 
-say_name :: (person: ^Person) {
+say_name :: (person: &Person) {
 	printf("Hi, I am {}.\n", person.name);
 }
 
@@ -157,7 +164,7 @@ joe: Joe;
 joe.name = "Joe";
 
 // This is safe, because Joe "extends" Person.
-say_name(^joe);
+say_name(&joe);
 ```
 
 In this example, you can pass a pointer to `Joe` when a pointer to `Person` is expected,

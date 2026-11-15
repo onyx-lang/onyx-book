@@ -1,11 +1,11 @@
 # #this_package
 
 This directive is a small hack that can be used when writing [`macros`](../procedures/macros.md).
-Because macros do not have normally scoping, it can be difficult
+Because macros do not have normal scoping, it can be difficult
 to reference something that is defined in the same package as the
 macro, since when the macro is expanded it might not be visible.
 
-`#this_package` is used to represent the current file's package as a
+`#this_package` is used to represent the current file's package as an
 object in which you can look things up.
 
 ```onyx

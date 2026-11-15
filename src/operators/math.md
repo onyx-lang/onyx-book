@@ -16,4 +16,10 @@ Onyx also has the standard unary operators:
 | --- | --- | --- |
 | `-` | Negation | integers, floats |
 
+## Compound assignment
+
+`+=`, `-=`, `*=`, `/=`, `%=`, and the other `op=` forms evaluate the left-hand side once. `arr[get_idx()] += 7` calls `get_idx` once.
+
+A type with no built-in `op=` is still rewritten as `lhs = lhs + rhs`.
+
 

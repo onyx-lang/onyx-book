@@ -58,6 +58,8 @@ draw :: () {
 }
 ```
 
+A `#if` used as a statement has to be inside a procedure. Outside a procedure, `#if` only wraps declarations, as in the previous section.
+
 ## Other uses
 
 See the [`#defined`](./defined.md) documentation for more uses of static-if statements.

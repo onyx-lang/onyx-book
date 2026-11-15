@@ -3,7 +3,7 @@
 Onyx has a relatively simple code organization system that is similar to other languages.
 To organize code, Onyx has *packages*.
 A package is collection of files that define the public and private symbols of the package.
-To use the symbols inside of a package, each *file* it is using the package.
+To use the symbols inside of a package, each file that needs them uses the package.
 This is done with the `use` keyword.
 
 Let's say we have two source files, `foo.onyx` and `bar.onyx`
@@ -108,8 +108,8 @@ There are several package names that have been taken by the Onyx standard librar
 ### `builtin` package
 
 The `builtin` package is notable because it is required by the compiler to exist.
-It contains several definitions needed by the compiler, for example `Optional` and `Iterator`.
-These definitions live in `core/builtin.onyx`, which is a slight misnomer because the `builtin` package is separate from the `core` module.
+It contains several definitions needed by the compiler, for example `Optional`.
+Those definitions live in `core/builtin.onyx`, which is a slight misnomer because the `builtin` package is separate from the `core` module.
 
 `builtin` is also special because its public scope is mapped to the *global* scope of the program.
 This means that anything defined in the package is available *without* using any packages.

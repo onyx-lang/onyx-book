@@ -1,31 +1,23 @@
-# #doc
+# Documentation comments
 
-`#doc` is used to provide doc-strings to bindings. They can appear before
-most "things" in the language, like structures, unions, procedures, enums, etc.
+A comment that starts with `///` is a documentation comment. It attaches to the next binding: a procedure, structure, union, enum, or other declaration. Several `///` lines in a row are joined into one string.
 
-To use them, simply write `#doc` followed by a compile-time string.
 ```onyx
-#doc "This is the documentation for the 'procedure_a'."
+/// This is the documentation for procedure_a.
 procedure_a :: () {
-	// ...
+    // ...
 }
 
-#doc """
-	This multi-line string literal is the documentation
-	for procedure_b.
-"""
+/// This is the documentation for procedure_b.
+/// A second line is part of the same string.
 procedure_b :: () {
-	// ...
+    // ...
 }
 ```
 
-Note that you can only have one `#doc` directive per binding.
+An ordinary `//` comment is not documentation.
 
-These doc-strings are included in the generated `.odoc` file when compiled
-with the `--doc` flag. This binary file is used by [onyx-doc-gen](https://github.com/onyx-lang/onyx-doc-gen)
-to generate HTML documentation for the current compilation. This file can
-also be easily deserialized into a structure you can work with in Onyx
-like so.
+These strings are included in the generated `.odoc` file when compiled with the `--doc` flag. That file is used by [onyx-doc-gen](https://github.com/onyx-lang/onyx-doc-gen) to generate HTML documentation for the current compilation. It can also be deserialized in Onyx.
 
 ```onyx
 use core.encoding.osad
@@ -35,5 +27,5 @@ use core.os
 contents := os.get_contents("documentation.odoc");
 docs     := osad.deserialize(doc.Doc, contents)->unwrap();
 
-// See core/doc/doc.onyx for the what is inside of `docs`
+// See core/doc/doc.onyx for what is inside of `docs`
 ```

@@ -5,7 +5,7 @@ use to configure how the resulting string will be formatted. Format specifiers a
 curly-braces (`{}`) in the format string. There is a one-to-one mapping between the number of curly-braces
 and arguments provided to `conv.format`, at least at the moment.
 
-This table provides brief defintions as to what can appear between the curly braces.
+This table provides brief definitions as to what can appear between the curly braces.
 
 | Symbol | Use |
 |---|---|
