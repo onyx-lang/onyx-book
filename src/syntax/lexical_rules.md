@@ -56,8 +56,6 @@ x := 10;
 println(x);
 ```
 
-`--feature optional-semicolons`, and a `//+optional-semicolons` comment on the first line of a file, turn on the same insertion. Insertion is already the default, so neither is needed.
-
 ### Symbols
 Symbols in Onyx start with an alphabetic character or an underscore (`_`), followed by 0 or more alphanumeric characters or underscores. They can be described using the following regular expression:
 ```regex 
